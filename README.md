@@ -12,7 +12,17 @@ This project implements and extends the methods presented in the paper:
 
 Original implementation provided in the following repository:
 
-*   [Yung-Sung Chuang] ([Year of software version]). *[Lookback-Lens]*. Version [e.g., v1.0 or commit hash]. Retrieved from [\[Lookback-Lens\]](https://github.com/voidism/Lookback-Lens/)
+*   [Yung-Sung Chuang] ([2024]). *[Lookback-Lens]*. Retrieved from [\[Lookback-Lens\]](https://github.com/voidism/Lookback-Lens/)
+
+## Technical Details
+
+### Attention Analysis
+
+The system calculates the ratio of attention paid to the user's context versus previously generated tokens for each head in each layer. This creates a feature vector that the classifier uses to identify potential hallucinations.
+
+### Sliding Window Approach
+
+Rather than analyzing individual tokens, the system uses a sliding window to examine patterns across multiple tokens, which improves detection reliability in longer conversations. First few messages with the model has no context to analyze basically, so they are not to be trusted if it isn't a long message.
 
 
 ## Features
@@ -36,8 +46,8 @@ Original implementation provided in the following repository:
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/emrehannn/hallucination-detecting-llm-tool
-cd lookback-lens
+git clone https://github.com/emrehannn/Contextual-Hallucination-Detecting-Trainable-LLM-Tool-With-Local-CLI-Transformers.git
+cd Contextual-Hallucination-Detecting-Trainable-LLM-Tool-With-Local-CLI-Transformers
 ```
 
 2. Install dependencies:
@@ -63,13 +73,9 @@ pip install -r requirements.txt
 
 ### Setting up the Classifier
 
-1. Create a directory for classifiers:
 
-```bash
-mkdir -p classifiers
-```
 
-2. Download or train your own classifier. The default configuration expects:
+*  Use the included classifier or train your own classifier. The default configuration expects:
    - Filename: `classifier_anno-cnndm-7b_sliding_window_8.pkl`
    - Path: `classifiers/classifier_anno-cnndm-7b_sliding_window_8.pkl`
 
@@ -80,7 +86,7 @@ If using a different classifier, update the `CLASSIFIER_PATH` variable in the sc
 Run the main script:
 
 ```bash
-python main.py
+python bot.py
 ```
 
 The application will:
@@ -121,19 +127,9 @@ The included classifier was trained on annotated factual vs. hallucinated text u
 
 ## OR
 
-1. You can use the "feedback: correct/false" tags to create your own .pk1
+* You can use the "feedback: correct/false" tags to create your own .pk1
 
 
-
-## Technical Details
-
-### Attention Analysis
-
-The system calculates the ratio of attention paid to the user's context versus previously generated tokens for each head in each layer. This creates a feature vector that the classifier uses to identify potential hallucinations.
-
-### Sliding Window Approach
-
-Rather than analyzing individual tokens, the system uses a sliding window to examine patterns across multiple tokens, which improves detection reliability.
 
 ## License
 
