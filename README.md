@@ -12,7 +12,7 @@ This project implements and extends the methods presented in the paper:
 
 Original implementation provided in the following repository:
 
-*   [Yung-Sung Chuang] ([Year of software version]). *[Lookback-Lens]*. Version [e.g., v1.0 or commit hash]. Retrieved from [\[URL of their GitHub repository\]](https://github.com/voidism/Lookback-Lens/)
+*   [Yung-Sung Chuang] ([Year of software version]). *[Lookback-Lens]*. Version [e.g., v1.0 or commit hash]. Retrieved from [\[Lookback-Lens\]](https://github.com/voidism/Lookback-Lens/)
 
 
 ## Features
