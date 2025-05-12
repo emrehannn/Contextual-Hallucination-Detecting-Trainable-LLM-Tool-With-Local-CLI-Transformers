@@ -1,8 +1,8 @@
-# Contextual Hallucination Detecting Trainable LLM Tool With Local CLI Transformers
+# Contextual Hallucination Detecting Trainable LLM Tool With Local CLI Transformer Integration
 
 ## Introduction 
 
-This project implements a real-time system for detecting potential hallucinations or deviations from context in LLM responses using attention pattern analysis. The system uses a sliding window approach to monitor the model's attention to context vs. previously generated tokens.
+This project implements a real-time system for detecting potential hallucinations or deviations from context in LLM responses using attention pattern analysis. The system uses a sliding window approach to monitor the model's attention to context vs. previously generated tokens. This is best suited as a tool in a big large language model, this is a proof of concept of the tool, working through a local LLM chatbot through CLI. 
 
 ## Acknowledgements / Basis of this Work
 
@@ -39,7 +39,7 @@ Rather than analyzing individual tokens, the system uses a sliding window to exa
 
 - Python 3.8+ 
 - CUDA-capable GPU (recommended, but will fall back to CPU)
-- Hugging Face account with access to Llama 2 models
+- Hugging Face permission to access Llama 2 models (or you can use your own model)
 
 ### Installation
 
@@ -68,8 +68,9 @@ pip install -r requirements.txt
    - Copy the token
 
 4. Edit the script to include your token:
-   - Open '.env' in the root directory
+   - Open '.env.example' in the root directory
    - Replace `HF_AUTH_TOKEN = "your token"` with your token
+   - Change '.env.example' to '.env'
 
 ### Setting up the Classifier
 
@@ -127,7 +128,7 @@ The included classifier was trained on annotated factual vs. hallucinated text u
 
 ## OR
 
-* You can use the "feedback: correct/false" tags to create your own .pk1
+* You can use the "feedback: correct/incorrect" tags to create your own .pkl file to dynamically adjust the factual threshold. The paper uses a value around 0.91.
 
 
 
