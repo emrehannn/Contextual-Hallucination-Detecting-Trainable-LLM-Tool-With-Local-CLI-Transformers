@@ -67,9 +67,13 @@ pip install -r requirements.txt
    - Create a new token (read access is sufficient)
    - Copy the token
 
-4. Edit the script to include your token:
+4. Log in to hugging face using CLI
+   - use `huggingface-cli login` command in terminal  
+   - paste your token here to complete login
+
+5. Edit the script to include your token:
    - Open '.env.example' in the root directory
-   - Replace `HF_AUTH_TOKEN = "your token"` with your token
+   - Replace `HF_AUTH_TOKEN = "your-token-here"` with your token
    - Change '.env.example' to '.env'
 
 ### Setting up the Classifier
