@@ -115,15 +115,15 @@ python bot.py
 The application will:
 1. Check for CUDA availability
 2. Load the Llama 2 model and tokenizer
-3. Load the Lookback Lens classifier
-4. Start an interactive chat session
+3. Start an interactive chat session
+4. Analyze attention weights to catch halucinated responses
 
 I coded this on Windows 11, so sadly no bitsandbytes quantization. But if you are using Linux/OS X, it is only 1 line of change to implement quantization.
 
 During the chat:
 - Type your message and press Enter
 - The model will respond with real-time token generation
-- Lookback Lens will analyze attention patterns and display:
+- The code will analyze attention patterns and display:
   - 🟢 Green: Response seems contextually grounded
   - 🟡 Yellow: Some deviation from context observed
   - 🔴 Red: Potential significant deviation from context
